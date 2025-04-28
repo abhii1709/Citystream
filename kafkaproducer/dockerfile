@@ -1,0 +1,17 @@
+FROM python:3.10-slim
+
+WORKDIR /producer
+
+# Install required tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    netcat-openbsd \
+ && rm -rf /var/lib/apt/lists/*
+
+COPY . /producer
+
+
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . /producer
+
+# Wait for kafka1:9092 before starting the producer
+CMD ["python", "kafkaproducer.py"]

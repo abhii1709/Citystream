@@ -1,0 +1,18 @@
+# Ignore Python compiled files
+__pycache__/
+*.pyc
+
+# Ignore environment folders
+venv/
+.env/
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+ml/model.pkl
+
